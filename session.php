@@ -1,0 +1,12 @@
+<?php
+/*							servidor		username	password	BD*/
+$connection= mysqli_connect("localhost", "proyecto", "proyecto", "loginsys");
+session_start();
+$user_check = $_SESSION['login_user'];
+$ses_sql=mysqli_query($connection,"select username from user where username='$user_check'");
+$row = mysqli_fetch_assoc($ses_sql);
+$login_session =$row['username'];
+if(!isset($login_session)){
+mysqli_close($connection);
+header('Location: index.php');
+}
