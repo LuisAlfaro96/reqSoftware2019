@@ -1,33 +1,37 @@
 <?php
+include("conexion.php");
 session_start();
 $error='';
-if(isset($_POST['submit'])){
+if(isset($_POST['Ingresar'])){
+	//echo "precione Ingresar";
 	if(empty($_POST['username']) || empty($_POST['password'])){
 		$error="Usuario o contraseña invalida";
 	}
 	else{
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-/*									servidor	 username	 password	  BD*/
-		$connection= mysqli_connect("localhost", "proyecto", "proyecto", "loginsys");
-		if (mysqli_connect_errno())
-		{
-			echo "Failed to connect to MySQL: " . mysqli_connect_error();
-		}
-		$username=stripslashes($username);
-		$password=stripslashes($password);
-		$username=mysqli_real_escape_string($connection, $username);
-		$password=mysqli_real_escape_string($connection, $password);
-		$sql = "select id_user from user where password = '$password' and username = '$username'";
-		$query = mysqli_query($connection, $sql);
-		$numrows = mysqli_num_rows($query);
-		if($numrows == 1){
-			$_SESSION['login_user']=$username;
-			header("location: profile.php");
+		
+		$con=mysql_connect($host,$user,$pw)
+		or die ("problemas al conectar server");
+	
+		mysql_select_db($db,$con)
+		or die ("problemas al  conectar la base de datos");
+		
+		
+		$result = mysql_query("select idPersona from persona where Contrasenna = '$password' and Usuario = '$username'");
+		$row = mysql_fetch_assoc($result);
+		$id = $row['idPersona'];
+		if($id > 0){
+			//$_SESSION['login_user']=$username;
+			//header("location: profile.php");
+			echo "Exito";
 		}else{
 			$error = "Usuario o contraseña invalidos";
 		}
-		mysqli_close($connection);
 	}
+}
+if(isset($_POST['Registrarse'])){
+	//echo "precione Registrarse";
+	header('Location: Prueba.php');
 }
 ?>

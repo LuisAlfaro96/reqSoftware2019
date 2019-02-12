@@ -14,20 +14,21 @@ if(isset($_SESSION['login_user'])){
 <body>
 <div class="main">
 	<div class="material" id="login">
-		<h2>Inicio de Sesion</h2>
+		<h1>Iniciar Sesion</h1>
 		<form action="" method="post">
-			<div style="text-align:left">
+			<div class="tf-area">
 				<input type="text" id="name" name="username">
 				<label for="name">Nombre de usuario</label>
 			</div>
 			
-			<div style="text-align:left">
+			<div class="tf-area">
 				<input type="password" id="password" name="password">
 				<label for="password">Contrase&ntilde;a</label>
 			</div>
 			
 			<span style="color:red"><?php echo $error; ?></span>
-			<input name="submit" type="submit" value="Ingresar">
+			<input class="button" name="Ingresar" type="submit" value="Ingresar" style="width:100%">
+			<input class="text-button" name="Registrarse" type="submit" value="Crear cuenta">
 		</form>
 	</div>
 </div>
