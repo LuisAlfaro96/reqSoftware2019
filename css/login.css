@@ -100,7 +100,6 @@ input:focus + label {
 	background-color:rgba(0,0,0,0);
 	outline:none;
 	border:none;
-	font-size:20px;
 }
 
 .text-button:hover {
