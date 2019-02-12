@@ -1,3 +1,7 @@
+<?php
+	include('registrar_c.php');	
+?>
+
 <html>
 <head>
 <title>Registro</title>
@@ -7,7 +11,7 @@
 <link href="css/login.css" rel="stylesheet" type="text/css">
 <div class="material" id="signup">
 	<h1>Crea tu cuenta</h1>
-	<form action="registrar_c.php" method="post">
+	<form action="" method="post">
 		<div class="tf-area">
 			<input type="text" name="nombre" />
 			<label>Nombre</label>
@@ -35,6 +39,7 @@
 			</div>
 		</div>
 		
+		<span style="color:red"><?php echo $error; ?></span>
 		<input class="button" name="Registrar" type="submit" value="Registrar">
 	</form>
 </div>

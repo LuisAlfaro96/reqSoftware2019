@@ -5,7 +5,7 @@ $error='';
 if(isset($_POST['Ingresar'])){
 	//echo "precione Ingresar";
 	if(empty($_POST['username']) || empty($_POST['password'])){
-		$error="Usuario o contraseña invalida";
+		$error="Usuario o contrase&ntilde;a inv&aacute;lida";
 	}
 	else{
 		$username=$_POST['username'];
